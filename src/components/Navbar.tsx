@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AnimatedNavLink } from "./ui/animated-nav-link";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sprout } from "lucide-react";
 
@@ -40,17 +41,13 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <AnimatedNavLink
                 key={item.name}
                 to={item.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-smooth ${
-                  isActive(item.path)
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-                }`}
+                isActive={isActive(item.path)}
               >
                 {item.name}
-              </Link>
+              </AnimatedNavLink>
             ))}
             
             <Button onClick={handleLogin} variant="hero" size="sm">

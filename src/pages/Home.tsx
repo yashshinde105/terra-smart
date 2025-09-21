@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { AnimatedButton } from "@/components/ui/animated-button";
+import { AnimatedCard } from "@/components/ui/animated-card";
+import { AnimatedIcon } from "@/components/ui/animated-icon";
+import { AnimateList } from "@/components/ui/animate-list";
+import { AnimateWrapper } from "@/components/ui/animate-wrapper";
 import { 
   Satellite, 
   TrendingUp, 
@@ -13,7 +18,7 @@ import {
   Droplets,
   Bug
 } from "lucide-react";
-import heroImage from "@/assets/hero-agriculture.jpg";
+import heroImage from "@/assets/agri.webp";
 
 const Home = () => {
   const features = [
@@ -105,13 +110,13 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <AnimateList staggerVariant="stagger" itemVariant="fadeInUp" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="card-gradient hover-lift border-0">
+              <AnimatedCard key={index} className="card-gradient hover-lift border-0">
                 <CardContent className="p-6 text-center">
                   <div className="mb-4 flex justify-center">
                     <div className="p-3 rounded-full bg-primary/10">
-                      <feature.icon className={`h-8 w-8 ${feature.color}`} />
+                      <AnimatedIcon icon={feature.icon} animationType="pulse" className={`h-8 w-8 ${feature.color}`} />
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-foreground">
@@ -121,9 +126,9 @@ const Home = () => {
                     {feature.description}
                   </p>
                 </CardContent>
-              </Card>
+              </AnimatedCard>
             ))}
-          </div>
+          </AnimateList>
         </div>
       </section>
 

@@ -65,7 +65,7 @@ const handleLogout = () => {
   to="/"
   className="fixed top-4 flex left-[-42vh] items-center space-x-2 group z-50 backdrop-blur-md bg-white/100  rounded-lg shadow-lg"
 >
-  <div className="p-2 rounded-lg group-hover:opacity-10 transition-smooth">
+  <div className="p-2 rounded-lg tr ansition-smooth">
     <img src={logo} alt="FarmFIT Logo" className="h-12 w-auto object-contain" />
   </div>
 </Link>

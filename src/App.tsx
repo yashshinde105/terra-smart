@@ -23,6 +23,7 @@ import NotFound from "./pages/NotFound";
 import PageWrapper from "./components/PageWrapper";
 import Navbarmini from "./components/Navbar_mini";
 import Layoutnew from "./components/Layout_new";
+import Indexcopy from "./pages/Indexcopy";
 const CropHealth = lazy(() => import("./pages/CropHealth"));
 const LiveAlerts = lazy(() => import("./pages/LiveAlerts"));
 const Weather = lazy(() => import("./pages/Weather"));
@@ -49,7 +50,7 @@ function AnimatedRoutes() {
         <Route path="/dashboard" element={<Layoutnew><DashboardLayout><Dashboard /></DashboardLayout></Layoutnew>} />
         <Route path="/crop-health" element={<Layoutnew><DashboardLayout><CropHealth /></DashboardLayout></Layoutnew>} />
         <Route path="/live-alerts" element={<Layoutnew><DashboardLayout><LiveAlerts /></DashboardLayout></Layoutnew>} />
-        <Route path="/weather" element={<DashboardLayout><Weather /></DashboardLayout>} />
+        <Route path="/weather" element={<DashboardLayout><Indexcopy /></DashboardLayout>} />
         
         <Route path="/EnvironmentalConditions" element={<Layoutnew><DashboardLayout><EnvironmentalConditions /></DashboardLayout></Layoutnew>} />
 

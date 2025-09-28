@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from '@/assets/logo.png';
 import { Sprout, Mail, Phone, MapPin, Twitter, Linkedin, Github } from "lucide-react";
 
 const Footer = () => {
@@ -11,10 +12,9 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="p-2 rounded-lg bg-white/10">
-                <Sprout className="h-6 w-6 text-white" />
+              <div className="p-2 rounded-lg bg-white/100">
+                <img src={logo} alt="FarmFIT Logo" className="h-[10vh] w-auto object-contain" />
               </div>
-              <span className="text-xl font-bold">AgriWatch AI</span>
             </div>
             <p className="text-primary-foreground/80 text-sm">
               Empowering sustainable farming through AI-powered precision agriculture 

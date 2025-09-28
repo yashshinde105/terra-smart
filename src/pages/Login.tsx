@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Sprout, Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import logo from '@/assets/logo.png';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -84,12 +85,9 @@ const Login = () => {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center space-x-2 group">
-            <div className="p-3 rounded-lg hero-gradient group-hover:opacity-90 transition-smooth">
-              <Sprout className="h-8 w-8 text-white" />
+            <div className="p-3 rounded-lg  group-hover:opacity-90 transition-smooth">
+              <img src={logo} alt="FarmFIT Logo" className="h-[11vh] w-auto object-contain" />
             </div>
-            <span className="text-2xl font-bold text-gradient">
-              AgriWatch AI
-            </span>
           </Link>
           <p className="text-muted-foreground mt-2">
             Access your agricultural intelligence platform

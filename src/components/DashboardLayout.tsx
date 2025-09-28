@@ -1,5 +1,6 @@
 import { ReactNode, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from '@/assets/logo.png';
 
 import { 
   SidebarProvider, 
@@ -10,9 +11,6 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarSeparator,
-  SidebarTrigger,
-  SidebarInset
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -52,12 +50,11 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       <div className="border-r">
         <SidebarProvider>
           <Sidebar>
-          <SidebarHeader className="p-4 border-b flex items-center justify-between mt-[1vh]">
-  <Link to="/" className="flex items-center gap-2 font-bold px-3 py-2">
-    <div className="p-2 rounded-lg hero-gradient group-hover:opacity-90 transition-smooth">
-    <Sprout className="h-6 w-6 text-white" />
+          <SidebarHeader className="p-2 border-b flex items-center justify-between mt-[1vh]">
+  <Link to="/" className="flex items-center gap-2 px-3 py-2 ">
+    <div className="p-2 rounded-lg  group-hover:opacity-90 transition-smooth">
+    <img src={logo} alt="FarmFIT Logo" className="h-[8.5vh] w-auto object-contain bg-transparent rounded-lg" />
    </div>
-    <span className="text-xl font-bold text-gradient">FarmFIT Ai</span>
   </Link>
 </SidebarHeader> 
     

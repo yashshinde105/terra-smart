@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { 
   Target, 
   Users, 
@@ -9,7 +10,11 @@ import {
   Leaf, 
   TrendingUp,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Calendar,
+  Rocket,
+  Heart,
+  Zap
 } from "lucide-react";
 
 const About = () => {
@@ -38,28 +43,46 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: "Dr. Sarah Chen",
+      name: "Bhumika",
       role: "Chief Technology Officer",
       expertise: "AI & Machine Learning",
-      description: "15+ years in agricultural AI research"
+      description: "15+ years in agricultural AI research",
+      icon: Zap
     },
     {
-      name: "Marcus Rodriguez",
+      name: "Vehan",
       role: "Head of Remote Sensing",
       expertise: "Satellite & Drone Technology",
-      description: "Former NASA research scientist"
+      description: "Former NASA research scientist",
+      icon: Globe
     },
     {
-      name: "Dr. Amara Okafor",
+      name: "Vinay",
       role: "Agricultural Scientist",
       expertise: "Crop Science & Agronomy",
-      description: "PhD in Sustainable Agriculture"
+      description: "PhD in Sustainable Agriculture",
+      icon: Leaf
     },
     {
-      name: "James Thompson",
+      name: "Vivek",
       role: "Product Director",
       expertise: "AgTech Solutions",
-      description: "20+ years in agricultural technology"
+      description: "20+ years in agricultural technology",
+      icon: Target
+    },
+    {
+      name: "Yash",
+      role: "Head of Data Science",
+      expertise: "Predictive Analytics",
+      description: "MIT PhD in Machine Learning",
+      icon: TrendingUp
+    },
+    {
+      name: "Yashas",
+      role: "VP of Engineering",
+      expertise: "Software Architecture",
+      description: "Former Google senior engineer",
+      icon: Rocket
     }
   ];
 
@@ -70,23 +93,78 @@ const About = () => {
     "25% average yield increase"
   ];
 
+  const stats = [
+    { number: "50K+", label: "Acres Monitored", icon: Globe, color: "text-green-600" },
+    { number: "95%", label: "Prediction Accuracy", icon: Target, color: "text-blue-600" },
+    { number: "10K+", label: "Farmers Supported", icon: Users, color: "text-purple-600" },
+    { number: "6", label: "Continents", icon: Award, color: "text-orange-600" }
+  ];
+
+  const timeline = [
+    {
+      year: "2020",
+      title: "FarmFit AI Founded",
+      description: "Started with a vision to revolutionize agriculture through AI"
+    },
+    {
+      year: "2021",
+      title: "First AI Model Released",
+      description: "Launched crop disease detection with 85% accuracy"
+    },
+    {
+      year: "2022",
+      title: "Global Expansion",
+      description: "Extended services to farmers across 3 continents"
+    },
+    {
+      year: "2023",
+      title: "Precision Agriculture Suite",
+      description: "Introduced complete farm management platform"
+    },
+    {
+      year: "2024",
+      title: "50K Acres Milestone",
+      description: "Reached 50,000+ acres under monitoring"
+    }
+  ];
+
   return (
-    <div className="min-h-screen">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen"
+    >
       {/* Hero Section */}
-      <section className="hero-gradient text-white py-20">
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="hero-gradient text-white py-20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              About AgriWatch AI
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl md:text-6xl font-bold mb-6"
+            >
+              About FarmFit AI
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl text-white/90 leading-relaxed"
+            >
               We're transforming agriculture through artificial intelligence, 
               remote sensing, and precision farming technologies to create a 
               more sustainable and productive future for farmers worldwide.
-            </p>
+            </motion.p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Mission Section */}
       <section className="py-20 bg-background">
@@ -155,104 +233,337 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-20 bg-secondary/30">
+      {/* Animated Statistics Section */}
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="py-20 bg-gradient-to-br from-green-50 to-blue-50"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold text-foreground mb-4"
+            >
+              Our Impact in Numbers
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-xl text-muted-foreground"
+            >
+              Driving measurable results for farmers worldwide
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <Card className="card-gradient hover-lift border-0 p-6 h-full">
+                  <CardContent className="p-0">
+                    <div className="mb-4 flex justify-center">
+                      <div className={`p-3 rounded-full bg-gray-100 ${stat.color}`}>
+                        <stat.icon className="h-8 w-8" />
+                      </div>
+                    </div>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+                      viewport={{ once: true }}
+                      className={`text-3xl font-bold mb-2 ${stat.color}`}
+                    >
+                      {stat.number}
+                    </motion.div>
+                    <p className="text-muted-foreground font-medium">
+                      {stat.label}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Company Timeline Section */}
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="py-20 bg-background"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold text-foreground mb-4"
+            >
+              Our Journey
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            >
+              From startup to agricultural technology leader - here's our story
+            </motion.p>
+          </div>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-gradient-to-b from-green-400 to-blue-400 hidden md:block"></div>
+            
+            <div className="space-y-12">
+              {timeline.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                >
+                  <div className="w-full md:w-5/12">
+                    <Card className="card-gradient hover-lift border-0 p-6">
+                      <CardContent className="p-0">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="p-2 bg-primary/10 rounded-lg">
+                            <Calendar className="h-5 w-5 text-primary" />
+                          </div>
+                          <span className="text-2xl font-bold text-primary">{item.year}</span>
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2 text-foreground">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  {/* Timeline dot */}
+                  <div className="hidden md:flex w-2/12 justify-center">
+                    <div className="w-4 h-4 bg-gradient-to-r from-green-400 to-blue-400 rounded-full border-4 border-white shadow-lg"></div>
+                  </div>
+                  
+                  <div className="w-full md:w-5/12"></div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Values Section */}
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="py-20 bg-secondary/30"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold text-foreground mb-4"
+            >
               Our Core Values
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            >
               The principles that guide our commitment to revolutionizing agriculture 
               through responsible innovation and sustainable practices.
-            </p>
+            </motion.p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="card-gradient hover-lift border-0 text-center">
-                <CardContent className="p-6">
-                  <div className="mb-4 flex justify-center">
-                    <div className="p-3 rounded-full bg-primary/10">
-                      <value.icon className="h-8 w-8 text-primary" />
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-foreground">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {value.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10, transition: { duration: 0.2 } }}
+              >
+                <Card className="card-gradient hover-lift border-0 text-center h-full">
+                  <CardContent className="p-6">
+                    <motion.div 
+                      className="mb-4 flex justify-center"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="p-3 rounded-full bg-primary/10">
+                        <value.icon className="h-8 w-8 text-primary" />
+                      </div>
+                    </motion.div>
+                    <h3 className="text-xl font-semibold mb-3 text-foreground">
+                      {value.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {value.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Team Section */}
-      <section className="py-20 bg-background">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="py-20 bg-background"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold text-foreground mb-4"
+            >
               Leadership Team
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Meet the experts behind AgriWatch AI - a diverse team of agricultural 
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            >
+              Meet the experts behind FarmFit AI - a diverse team of agricultural 
               scientists, AI researchers, and technology innovators.
-            </p>
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="card-gradient hover-lift border-0">
-                <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-10 w-10 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-primary font-medium mb-2">
-                    {member.role}
-                  </p>
-                  <p className="text-sm text-accent mb-2">
-                    {member.expertise}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {member.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                <Card className="card-gradient hover-lift border-0 h-full">
+                  <CardContent className="p-6 text-center">
+                    <motion.div 
+                      className="w-20 h-20 rounded-full bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center mx-auto mb-4"
+                      whileHover={{ scale: 1.1, rotate: 10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <member.icon className="h-10 w-10 text-primary" />
+                    </motion.div>
+                    <h3 className="text-lg font-semibold text-foreground mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-primary font-medium mb-2">
+                      {member.role}
+                    </p>
+                    <p className="text-sm text-accent mb-2 font-medium">
+                      {member.expertise}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {member.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA Section */}
-      <section className="py-20 hero-gradient text-white">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="py-20 hero-gradient text-white"
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-6"
+          >
             Join the Agricultural Revolution
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-xl mb-8 text-white/90"
+          >
             Ready to transform your farming operations with AI-powered insights? 
             Get started today and see the difference precision agriculture can make.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90">
-              <Link to="/login">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild variant="ghost" size="lg" className="text-white border-white/30 hover:bg-white/10">
-              <Link to="/contact">Contact Our Team</Link>
-            </Button>
-          </div>
+          </motion.p>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button asChild variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90">
+                <Link to="/login">
+                  Get Started
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button asChild variant="ghost" size="lg" className="text-white border-white/30 hover:bg-white/10">
+                <Link to="/contact">Contact Our Team</Link>
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 };
 

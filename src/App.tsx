@@ -39,7 +39,7 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Layout><PageWrapper><Index /></PageWrapper></Layout>} />
-        <Route path="/login" element={<Layout><PageWrapper><Login /></PageWrapper></Layout>} />
+        <Route path="/login" element={<PageWrapper><Login /></PageWrapper>} />
         <Route path="/account-created" element={<PageWrapper><AccountCreated /></PageWrapper>} />
         <Route path="/logged-out" element={<PageWrapper><LoggedOut /></PageWrapper>} />
 
@@ -50,7 +50,7 @@ function AnimatedRoutes() {
         <Route path="/dashboard" element={<Layoutnew><DashboardLayout><Dashboard /></DashboardLayout></Layoutnew>} />
         <Route path="/crop-health" element={<Layoutnew><DashboardLayout><CropHealth /></DashboardLayout></Layoutnew>} />
         <Route path="/live-alerts" element={<Layoutnew><DashboardLayout><LiveAlerts /></DashboardLayout></Layoutnew>} />
-        <Route path="/weather" element={<DashboardLayout><Indexcopy /></DashboardLayout>} />
+        <Route path="/weather" element={<Layoutnew><DashboardLayout><Indexcopy /></DashboardLayout></Layoutnew>} />
         
         <Route path="/EnvironmentalConditions" element={<Layoutnew><DashboardLayout><EnvironmentalConditions /></DashboardLayout></Layoutnew>} />
 

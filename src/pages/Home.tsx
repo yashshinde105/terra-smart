@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { 
   Satellite, 
   TrendingUp, 
@@ -25,6 +26,9 @@ import {
 import heroImage from "@/assets/agri.webp";
 
 const Home = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
   const features = [
     {
       icon: Satellite,
@@ -115,21 +119,51 @@ const Home = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen"
+      className=""
     >
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-black/50" />
+      {/* Hero Section - Full Screen */}
+      <section className="relative h-screen w-screen flex items-center justify-center overflow-hidden -mt-0 -mb-0">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-black">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full"
+            onCanPlay={() => setVideoLoaded(true)}
+            onError={() => setVideoError(true)}
+            style={{
+              width: '150%',
+              height: '150%',
+              objectFit: 'cover',
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              minWidth: '100vw',
+              minHeight: '100vh'
+            }}
+          >
+            <source src="/videos/farm-hero-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          
+          {/* Fallback background image - shows when video fails or doesn't load */}
+          <div 
+            className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
+              videoLoaded && !videoError ? 'opacity-0' : 'opacity-100'
+            }`}
+            style={{ backgroundImage: `url(${heroImage})` }}
+          />
+          
+          {/* Video overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50 z-10" />
         </div>
         
         {/* Floating Elements */}
         <motion.div
-          className="absolute top-20 right-20 w-16 h-16 bg-green-400/20 rounded-full blur-xl"
+          className="absolute top-20 right-20 w-16 h-16 bg-green-400/20 rounded-full blur-xl z-20"
           animate={{
             y: [0, -20, 0],
             opacity: [0.3, 0.6, 0.3],
@@ -141,7 +175,7 @@ const Home = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-32 left-16 w-12 h-12 bg-blue-400/20 rounded-full blur-xl"
+          className="absolute bottom-32 left-16 w-12 h-12 bg-blue-400/20 rounded-full blur-xl z-20"
           animate={{
             y: [0, 15, 0],
             opacity: [0.4, 0.7, 0.4],
@@ -155,7 +189,7 @@ const Home = () => {
         />
         
         {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        <div className="relative z-30 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
